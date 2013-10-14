@@ -13,7 +13,7 @@ tylorlouis@ucla.edu
 
 Yicheng Yang
 --------
-jamesnfls9315@gamil.com
+jamesnfls9315@gmail.com
 310-562-3534
  
 Sean Zarringhalam
