@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore" xmlns:o="http://wireframesketcher.com/1.0/model/overrides">
+  <widgets xsi:type="model:Master" id="1" x="88" y="-6" measuredWidth="980" measuredHeight="388" dimmed="true">
+    <screen xsi:type="model:Screen" href="Search%20-%20Template.screen#/"/>
+    <overrides>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Note" x="384" y="191" text="Alternate display for no ticket match" annotation="true">
+          <font/>
+        </object>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Note" x="392" y="115" text="Default chart" annotation="true">
+          <font/>
+        </object>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Arrow" x="304" y="203" width="89" height="17" annotation="true" direction="bottom"/>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Arrow" x="328" y="131" width="73" height="17" annotation="true" direction="bottom"/>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Label" x="80" y="211" width="241" text="No Ticket Found for Bar Code xxxx-xxxxxxxxx" foreground="#ff0000">
+          <font/>
+        </object>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Table" x="58" y="139" width="285" height="41" text="25%,50%, 75%&#xA;$xx.xx, $xx.xx, $xx" alternative="#eeeeee">
+          <font/>
+        </object>
+      </widgetChanges>
+    </overrides>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

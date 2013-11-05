@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore" xmlns:o="http://wireframesketcher.com/1.0/model/overrides">
+  <widgets xsi:type="model:Master" id="1" x="-43" measuredWidth="980" measuredHeight="388" dimmed="true">
+    <screen xsi:type="model:Screen" href="Search%20-%20Template.screen#/"/>
+    <overrides>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Chart" x="67" y="125" width="265" height="170" chartType="line"/>
+      </widgetChanges>
+      <widgets ref="9">
+        <attributes key="selection" value="1"/>
+      </widgets>
+    </overrides>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
