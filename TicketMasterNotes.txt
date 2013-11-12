@@ -1,0 +1,60 @@
+Goals:
+- Data Science contract & mocks
+- Web service contract & mocks
+- What we're displaying & mock
+- Plan to integrate early & why
+
+What's coming in:
+-TimeToEvent(Days)
+-***SalePrice($)
+-***OriginalPrice($)
+-TeamName(s)
+-Venue
+-Sport Type
+-Seat
+
+Priorities:
+getting it closest to prive
+how many other tickets are for sale
+timing to event
+
+
+For us:
+- A range should be possible
+- Provide a confidence bound
+- Barcode gives everything
+- Create ticket schema
+- JSON service
+- inventoryticketid field in data is the barcode (seems to be nine digits)
+
+
+Flow of data:
+---------------------------------
+USER => UI => (barcode) => WS (-> query database <-) => (ticket object) => DS => Model
+USER <= UI <= (JSON) <= WS <= (prediction model) <= DS <= ...
+
+Barcode:
+	string w/ variable length: 64 bytes max
+
+Ticket Object:
+	barcode:
+	- seat# (string)
+	- team (string)
+	- price (float)
+
+Prediction Object:
+	- date (integer days to event)
+	- Price
+	- Psale (confidence)
+
+What information UI wants back from services:
+	- original price
+	- event name
+	- event date
+	- seat information
+	- event time
+	- 
+
+Contact your own server on the route
+on the front end call yourself (widget/json/data)
+when you hit that route, have your backend hit their endpoint
