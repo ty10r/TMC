@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore" xmlns:o="http://wireframesketcher.com/1.0/model/overrides">
+  <widgets xsi:type="model:Master" id="1" y="-2" measuredWidth="980" measuredHeight="388" dimmed="true">
+    <screen xsi:type="model:Screen" href="Search%20-%20Template.screen#/"/>
+    <overrides>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Note" x="264" y="148" text="Date and time formats&#xD;&#xA;mm/dd/yyyy&#xD;&#xA;hh:mm A.M/P.M" annotation="true">
+          <font/>
+        </object>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Arrow" x="168" y="157" width="97" height="11" annotation="true" direction="bottom"/>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Label" x="64" y="246" width="273" text="Date Purchased:  10/10/2013">
+          <font/>
+        </object>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Label" x="64" y="226" width="273" text="Seat Purchase Price: $100.00">
+          <font/>
+        </object>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Label" x="64" y="206" width="273" text="Seat Category:  Front row, aisle">
+          <font/>
+        </object>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Label" x="64" y="186" width="273" text="Seat: Section xx, 1F">
+          <font/>
+        </object>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Label" x="64" y="167" width="273" text="Time: 9:00 P.M.">
+          <font/>
+        </object>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Label" x="64" y="151" width="273" text="Date:  10/31/2013">
+          <font/>
+        </object>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Insert" newIndex="7">
+        <object xsi:type="model:Label" x="64" y="135" width="273" text="Event name: Halloween Concert">
+          <font/>
+        </object>
+      </widgetChanges>
+      <widgets ref="9">
+        <attributes key="selection" value="2"/>
+      </widgets>
+    </overrides>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

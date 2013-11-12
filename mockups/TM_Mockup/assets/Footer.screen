@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Text" id="1" x="10" y="10" width="980" height="41" text="TM copyright info" measuredWidth="980" measuredHeight="41" textAlignment="Center" foreground="#666666">
+    <font size="12px"/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

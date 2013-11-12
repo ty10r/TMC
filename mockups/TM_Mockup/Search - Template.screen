@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Master" id="15" x="21" y="5" measuredWidth="128" measuredHeight="38" dimmed="true">
+    <screen xsi:type="model:Screen" href="assets/Header.screen#/"/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="3" x="16" y="352" measuredWidth="980" measuredHeight="41">
+    <screen xsi:type="model:Screen" href="assets/Footer.screen#/"/>
+  </widgets>
+  <widgets xsi:type="model:WidgetGroup" id="18" x="48" y="45" width="305" measuredWidth="305" measuredHeight="260">
+    <widgets xsi:type="model:Rectangle" id="17" width="305" height="260" measuredWidth="305" measuredHeight="260">
+      <font/>
+    </widgets>
+  </widgets>
+  <widgets xsi:type="model:TabbedPane" id="9" x="48" y="88" width="305" height="217" text="Prices, Graph, Details" measuredWidth="305" measuredHeight="217" selection="0">
+    <items link="Prices.screen" x="10" y="0" width="51" height="27" text="Prices"/>
+    <items link="Graph.screen" x="61" y="0" width="52" height="27" text="Graph"/>
+    <items link="Details.screen" x="113" y="0" width="55" height="27" text="Details"/>
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="16" x="113" y="58" width="104" measuredWidth="104" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="19" x="58" y="58" text="Bar Code:" measuredWidth="56" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="20" x="224" y="58" text="Search" measuredWidth="55" measuredHeight="25" background="#9fc5e8" link="Prices.screen">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
