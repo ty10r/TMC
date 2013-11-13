@@ -20,7 +20,11 @@ app.get('/my_account', function(request, response){
     	title: 'Ticket Master | My Account',
     	css: [ 
             '/css/priceWidget.css' 
-            ]
+            ],
+        js: [
+            '/js/priceWidget.js',
+            '/js/lib/jquery-1.10.2.min.js'
+        ]
     });
 });
 

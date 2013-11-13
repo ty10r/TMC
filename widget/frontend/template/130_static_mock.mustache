@@ -60,36 +60,21 @@ catch (ex) {
 <!--[if lt IE 7]>
 <script type="text/javascript">is_IE6 = true</script>
 <![endif]-->
-
-
 <script language="JavaScript" src="/public/tmjs.js" type="text/javascript"></script>
-
-
-
-
 <script language="JavaScript" type="text/javascript" src="/public/prototype.js"></script>
-
-
-
-
-
   <script language="JavaScript" type="text/javascript" src="/public/jquery.js"></script>
   <script language="JavaScript" type="text/javascript" src="/public/jquery-ui.js"></script>
   <script src="/public/jquery.xml2json.js"></script>
-
-
 <script src="/public/jquery.scrollto.min.js"></script>
 <script src="/public/jquery.tm.priceslider.js"></script>
-
 <script language="JavaScript" type="text/javascript" src="/public/jquery.bgiframe-2.1.2.js"></script>
 <script language="JavaScript" type="text/javascript" src="/public/tm.js"></script>
-
-
-
 <script language="JavaScript" type="text/javascript" src="/public/csconnect.js"></script>
-
-
+{{#js}}
+    <script language="JavaScript" type="text/javascript" src="{{file}}"></script>
+{{/js}}
 <script language="JavaScript" type="text/javascript">
+
 //<![CDATA[
 	jQuery.noConflict();
 		
@@ -742,7 +727,7 @@ function showSuggestions() {
         deleteCookie("MAJOR_CATEGORY");
         //-->
     </script>
-    
+
     <link href="/public/resale-posting.css" rel="stylesheet" type="text/css">    <link href="/public/lightbox.css" rel="stylesheet" type="text/css">
 <!--[if IE]>
 <style>
