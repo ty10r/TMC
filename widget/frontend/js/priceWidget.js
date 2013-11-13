@@ -19,7 +19,7 @@ $( document ).ready( function() {
 	});
 
 	$('.tab-selector').bind('click', function( event ) {
-		widget.SelectTab($(this).attr('id') + '-tab');
+		widget.SelectTab($(this).attr('id'));
 	})
 
 });
@@ -56,6 +56,7 @@ var PriceRecWidget = function() {
 	};
 
 	self.ReportError = function( error ) {
+		$('.price-rec .error-feedback').show();
 		$('.price-rec .error-feedback').html(error);
 	};
 
@@ -63,12 +64,15 @@ var PriceRecWidget = function() {
 		$(".prompt").hide();
 		// TODO: Build the graph
 		$("div.recommendations").show();
-		self.SelectTab("simple-tab");
+		self.SelectTab("simple");
 	};
 
-	self.SelectTab = function( tabId ) {
-		$('.tab').attr("class", "tab")
-		$('#' + tabId).attr("class", "tab active-tab");
+	self.SelectTab = function( tabNavId ) {
+		console.log(tabNavId);
+		$('.tab-selector').attr("class", "tab-selector");
+		$('.tab').attr("class", "tab");
+		$('#' + tabNavId).attr("class", "tab-selector active-selector");
+		$('#' + tabNavId +'-tab' ).attr("class", "tab active-tab");
 	}
 }
 
