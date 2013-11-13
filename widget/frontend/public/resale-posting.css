@@ -218,6 +218,7 @@ font-size: 16px;
 margin:0;
 }
 .step-details {
+display: inline-block;
 padding: 15px 0 0 0;
 }
 .block-title {
