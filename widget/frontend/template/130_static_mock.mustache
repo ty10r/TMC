@@ -15,6 +15,9 @@
 <meta name="robots" content="index">
 <meta name="robots" content="NOODP">
 <link rel="icon" href="https://qaip13.ticketmaster.net:8003/favicon-rebrand.ico" type="image/x-icon">
+{{#css}}
+    <link rel="stylesheet" href="{{file}}">
+{{/css}}
 <link rel="shortcut icon" href="https://qaip13.ticketmaster.net:8003/favicon-rebrand.ico" type="image/x-icon">
 
 
@@ -1332,6 +1335,7 @@ html body .h30 .widget-dropdown-list li {
             </div>
           </div>
         </div>
+        {{>partial/priceWidget.mustache}}
       </li>
 
       <!-- STEP 3: HOW TO TO GET PAID -->

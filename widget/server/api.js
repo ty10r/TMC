@@ -88,7 +88,6 @@ var RenderPage = exports.RenderPage = function( controllerParams, pageParams, ca
                 // Begin rendering and stream the contents of the web page out as we render them
                 var rendered = '';
                 var stream = mustache.render( compiledTemplate, pageParams );
-
                 var Readable = require( 'stream' ).Readable;
                 var newStream = new Readable().wrap( stream );
 
