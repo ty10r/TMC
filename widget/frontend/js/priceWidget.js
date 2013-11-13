@@ -18,6 +18,10 @@ $( document ).ready( function() {
 		widget.SubmitBarcode();
 	});
 
+	$('.tab-selector').bind('click', function( event ) {
+		widget.SelectTab($(this).attr('id') + '-tab');
+	})
+
 });
 
 
@@ -44,8 +48,10 @@ var PriceRecWidget = function() {
 			}
 		},
 		function( error, message ) {
-			// TODO: Change this to actual functionality..not indication of receipt
-			self.ReportError( error ? error : message );
+			if ( error ) {
+				self.ReportError( error );
+			}
+			self.RenderRecommendation();
 		});
 	};
 
@@ -53,9 +59,17 @@ var PriceRecWidget = function() {
 		$('.price-rec .error-feedback').html(error);
 	};
 
-	self.ShowRecommendation = function( ) {
-		// TODO
+	self.RenderRecommendation = function( ) {
+		$(".prompt").hide();
+		// TODO: Build the graph
+		$("div.recommendations").show();
+		self.SelectTab("simple-tab");
 	};
+
+	self.SelectTab = function( tabId ) {
+		$('.tab').attr("class", "tab")
+		$('#' + tabId).attr("class", "tab active-tab");
+	}
 }
 
 

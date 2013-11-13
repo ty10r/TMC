@@ -27,3 +27,11 @@ section.price-rec {
 .error-feedback {
 	color: #9f060c;
 }
+
+.tab {
+	display: none;
+}
+
+.active-tab {
+	display: block;
+}
