@@ -1113,6 +1113,8 @@ html body .h30 .widget-dropdown-list li {
       <li>Sell in fewer steps</li>
     </ul>
   </div></div>
+  
+{{>partial/priceWidget.mustache}}
 
 <div class="sell-flow disabled-states">
   <form id="posting-form" action="https://qaip13.ticketmaster.net:8003/member/resale/posting" method="post" name="postingForm" role="form" autocomplete="off">
@@ -1299,7 +1301,6 @@ html body .h30 .widget-dropdown-list li {
             </div>
           </div>
         </div>
-        {{>partial/priceWidget.mustache}}
       </li>
 
       <!-- STEP 3: HOW TO TO GET PAID -->
