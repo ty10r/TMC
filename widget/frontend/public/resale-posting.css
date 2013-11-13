@@ -1,0 +1,1043 @@
+/* RESALE POSTING STYLES */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *\
+$GENERAL
+general purpose styles
+\* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+body {
+font-size: 14px;
+}
+.clearfix {
+*zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+display: table;
+content: "";
+line-height: 0;
+}
+.clearfix:after {
+clear: both;
+}
+.hide-text {
+font: 0/0 a;
+color: transparent;
+text-shadow: none;
+background-color: transparent;
+border: 0;
+}
+.title-text {
+font-weight: bold;
+}
+.smallText {
+font-size: 12px;
+font-weight: normal;
+}
+.success-text {
+color: #28974d;
+font-weight: bold;
+}
+.alert-text {
+color: #f00;
+font-weight: bold;
+}
+.page-area {
+background: #fff;
+width: 1000px;
+margin: auto;
+}
+.stored-table {
+border-collapse: collapse;
+border: 0;
+padding: 0;
+}
+.stored-table th {
+text-align: left;
+padding-right: 60px;
+white-space: nowrap;
+}
+.stored-table td {
+vertical-align: top;
+padding-top: 5px;
+padding-right: 60px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *\
+$ERROR
+Error page
+\* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.page-maintenance {
+    text-align: center;
+}
+.page-maintenance h1 {
+    background: url("img/sys/common_new/resale/maintenance.png") no-repeat scroll center top transparent;
+    font-size: 24px;
+    margin-top: 40px;
+    padding-top: 160px;
+    margin-bottom:10px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *\
+$HEADER
+top of page stuff
+\* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.page-header {
+position: relative;
+}
+
+.breadcrumbs {
+font-size: 21px;
+padding: 0;
+max-width: 680px;
+}
+.breadcrumb-list {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+.breadcrumb-indicator {
+color: #ccc;
+padding: 0 8px;
+}
+
+.event-details {
+margin-left: 220px;
+}
+.event-info {
+width: 680px;
+margin: 30px 0 20px 0;
+}
+.event-pic {
+margin-right: 15px;
+}
+.event-title {
+font-size: 18px;
+}
+.event-title + p {
+margin-top: 0;
+font-size: 12px;
+}
+
+.value-prop {
+width: 290px;
+border: 1px solid #e5e5e5;
+-webkit-box-shadow: 3px 4px #eee;
+-moz-box-shadow: 3px 4px #eee;
+box-shadow: 3px 5px #eee;
+position: absolute;
+top: 0;
+right: 0;
+text-align: center;
+}
+.value-prop-title {
+margin: 10px 0;
+}
+.value-prop-list {
+margin: 0 15px 15px;
+padding: 0;
+list-style-type: none;
+text-align: left;
+}
+.value-prop-list li {
+background: url('img/sys/common_new/resale/check-mark.gif') left no-repeat;
+padding-left: 25px;
+margin-bottom: 5px;
+font-size: 12px;
+}
+#mainContent {
+  padding-bottom:10px;
+}
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *\
+$SELL_FLOW
+general sell flow area
+\* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.sell-flow {
+width: 950px;
+min-height: 380px;
+border: 1px solid #cdcdcd;
+background: #fff url('img/sys/common_new/resale/sell-flow-bg.jpg') repeat-x;
+padding: 15px;
+clear: both;
+display: inline-block;  // die IE7!
+}
+.page-title {
+font-size: 20px;
+margin-bottom: 20px;
+padding-bottom: 2px;
+border-bottom: 2px solid #e3e3e3;
+}
+.sell-confirmation .page-title {
+color: #28974d;
+}
+.sell-flow .disabled {
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  /* IE 5-7 */
+  filter: alpha(opacity=50);
+  /* Netscape */
+  -moz-opacity: 0.5;
+  /* Safari 1.x */
+  -khtml-opacity: 0.5;
+  /* Good browsers */
+  opacity: 0.5;
+  position:relative;
+  zoom:1;
+}
+.posting-step-overlay {
+  display:none;
+}
+.disabled .posting-step-overlay {
+  display:block;
+  background:url('img/sys/common/x.gif');
+  position:absolute;
+  z-index:1;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+}
+.sell-flow-list {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+.sell-flow-step {
+margin-top: 30px;
+padding-bottom: 30px;
+border-bottom: 1px solid #e7e7e7;
+}
+.sell-flow-step1 {
+margin-top: 20px;
+padding-bottom: 20px;
+}
+.step-title {
+font-size: 16px;
+margin:0;
+}
+.step-details {
+padding: 15px 0 0 0;
+}
+.block-title {
+font-size: 14px;
+margin: 0 0 15px;
+}
+.address-info .block-title {
+margin-top: 15px;
+}
+.sell-flow-step4 .billing-address .block-title {
+margin-top: 10px;
+}
+
+/* next step */
+.next-step {
+text-align: right;
+margin: 15px 0 5px 0;
+}
+.next-step .button {
+margin-left: 6px;
+}
+
+
+/* form styles */
+.input-text-label {
+font-size: 11px;
+font-weight: bold; 
+text-transform: uppercase;
+color: #acacac;
+}
+.input-text {
+display: block;
+padding-top: 0;
+padding-bottom: 0;
+padding-left: 10px;
+margin-top: 1px;
+margin-bottom: 10px;
+width: 260px;
+height: 28px;
+line-height: 28px;
+border: 1px solid #ababab;
+font-size: 14px;
+}
+.input-text-optional {
+color: #999;
+}
+.input-zip {
+width: 102px;
+}
+.input-cctype {
+width: 80px;
+}
+.input-ccnum {
+width: 161px;
+}
+
+/* for grouping multiple inputs for one label (i.e., exp date = mm + yy) */
+.input-group {
+display: block;
+}
+.input-group .input-text {
+display: inline-block;
+}
+
+/* for stacking input fields on the same row, to the right */
+.input-stack-horizontal {
+margin-left: 15px;
+}
+
+/* aligning text label to radio/checkbox buttons */
+.input-radio-label, .input-checkbox-label {
+display: block !important;
+padding-left: 15px;
+text-indent: -15px;
+}
+.input-radio, .input-checkbox {
+height: 16px;
+margin: 0 5px 0 0;
+padding: 0;
+vertical-align: bottom;
+width: 13px;
+}
+.input-checkbox-label-same-billing-add {
+margin-bottom: 15px;
+}
+
+/* submit buttons */
+.submit-buttons .button, .submit-buttons .button-secondary {
+margin: 15px 0 0;
+}
+.submit-buttons .button-secondary {
+margin-right: 5px;
+}
+.dd-info + .submit-buttons, 
+.address-info + .submit-buttons {
+margin-top: -10px;
+}
+
+
+/* modifying widget.css */
+.widget-wrapper {
+display: block;
+text-transform: capitalize;
+margin-top: 1px;
+*margin-top: 2px;   // I smite thee, IE7
+}
+.cc-new .widget-wrapper {
+  *margin-top: 0px;
+}
+.cc-new .floatLeft label {
+  *position:relative;
+  *top:-1px;
+}
+.cc-info .input-stack-horizontal .widget-wrapper {
+float: left;
+}
+.widget-dropdown b {
+padding: 0;
+}
+.input-text-label-state .h30 .widget-dropdown b b {
+width: 92px;
+}
+.input-text-label-country .h30 .widget-dropdown b b {
+width: 223px;
+}
+.input-text-label-cctype .h30 .widget-dropdown b b {
+width: 86px;
+}
+.input-text-label-ccexp {
+width: 184px;
+}
+.input-ccexpyy .widget-wrapper {
+margin-left: 15px;
+width: 79px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *\
+$STEP1
+ticket stubs + pagination controls
+\* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.ticket-stubs-container {
+position: relative;
+}
+.ticket-stubs {
+width: 950px;
+height: 200px;
+overflow: hidden;
+}
+.stubs-container {
+margin: 0;
+padding: 0;
+list-style-type: none;
+width: 4000px;
+}
+.ticket-stub {
+margin: 0;
+padding: 0;
+width: 220px;
+height: 177px;
+padding-top: 8px;
+}
+.ticket-stub + .ticket-stub {
+margin-left: 23px;
+}
+.ticket-stub-header {
+height: 49px;
+padding-bottom: 14px;
+}
+.ticket-stub-body {
+height: 85px;
+padding: 15px 0;
+font-size: 12px;
+text-align: center;
+}
+
+.ticket-location {
+width: 100%;
+height: 100%;
+border-collapse: collapse;
+padding: 0;
+}
+.ticket-location th {
+font-size: 12px;
+font-weight: normal;
+text-transform: uppercase;
+}
+.ticket-section-hdr {
+padding-left: 10px;
+text-align: center;
+}
+.ticket-row-hdr, .ticket-row {
+width: 100%;
+text-align: center !important;
+padding-right: 10%;
+}
+.ticket-seat-hdr, .ticket-seat {
+width: 50px;
+text-align: center;
+padding-right: 10px;
+}
+.ticket-ref-hdr {
+text-align: right;
+padding-right: 10px;
+}
+.location-ga .ticket-section-hdr {
+width: 60px;
+}
+.location-ga .ticket-section {
+padding-left: 7px;
+}
+.ticket-ref {
+text-align: right;
+padding-right: 25px;
+}
+.ticket-ref-review {
+text-align: right;
+padding-right: 10px;
+}
+.ticket-location td {
+color: #414141;
+font-size: 18px;
+font-weight: bold;
+vertical-align: top;
+}
+.ticket-section {
+padding-left: 10px;
+/*padding-right: 5px;*/
+text-align: center;
+white-space: nowrap;
+}
+
+.ticket-info {
+height: 50px;
+padding: 0 20px 5px 20px;
+}
+.ticket-info p {
+margin-top: 0;
+clear: both;
+text-shadow: 1px 1px 1px #fff;
+}
+.ticket-info-plus-resale .price-paid {
+margin-left: -5px;
+margin-right: -5px;
+margin-bottom: 0;
+padding-bottom: 5px;
+}
+.ticket-info-plus-resale .price-resale {
+margin-left: -5px;
+margin-right: -5px;
+padding-top: 5px;
+}
+.info-label {
+color: #999;
+text-transform: uppercase;
+}
+
+.stub-standard {
+background: #cacaca url('img/sys/common_new/resale/ticket-stub-edges.gif') no-repeat;
+}
+.stub-standard .ticket-stub-header {
+background: #d00509 url('img/sys/common_new/resale/ticket-stub-arrow.png') bottom no-repeat;
+}
+.stub-standard .ticket-stub-body {
+background: #efefef url('img/sys/common_new/resale/ticket-stub-edges.gif') -221px bottom no-repeat;
+}
+.stub-standard .ticket-location {
+background: #cacaca;
+}
+.stub-standard .ticket-location th {
+color: #d00509;
+}
+.stub-standard .ticket-location th, .stub-standard .ticket-location td {
+text-shadow: 0 1px 0 #fff;
+}
+.stub-standard .ticket-info-plus-resale .price-paid {
+border-bottom: 1px solid #d4d4d4;
+}
+.stub-standard .ticket-info-plus-resale .price-resale {
+border-top: 1px solid #f8f8f8;
+}
+
+.stub-dashed {
+background: url('img/sys/common_new/resale/ticket-stub-border-dashed.gif') no-repeat;
+}
+.stub-dashed .ticket-stub-header {
+background: url('img/sys/common_new/resale/ticket-stub-arrow-dashed.gif') bottom no-repeat;
+}
+.stub-dashed .ticket-location th, .stub-dashed .ticket-location td, .stub-dashed .ticket-info {
+color: #999;
+}
+.transfer-state {
+color: #999;
+font-weight: bold;
+line-height: 25px;
+padding: 5px 0 5px 33px;
+}
+
+.transfer-state-label {
+padding: 0px 0px 0px 0px ;
+}
+
+.state-complete {
+background: url('img/sys/common_new/resale/ticket-transfer-icons.gif') 0 0 no-repeat;
+}
+.state-pending {
+background: url('img/sys/common_new/resale/ticket-transfer-icons.gif') 0 -26px no-repeat;
+}
+
+.cancel-xfer {
+text-align: center;
+}
+.link-cancel-xfer {
+font-size: 11px;
+}
+
+/* selected ticket stub */
+.btn-selected,
+.btn-selected:hover,
+.btn-selected:focus {
+width: 58px;
+background-color: #3AB525;
+border-color: #2E8A1E;
+}
+.btn-select:active, .btn-select:focus,
+.btn-selected:active, .btn-selected:focus,
+.disabled .btn-select:hover, .disabled .btn-selected:hover,
+.disabled .btn-select:focus, .disabled .btn-selected:focus {
+background-image: url('img/sys/common_new/resale/gradient.png');
+background-position: center bottom;
+}
+.btn-select:hover, .btn-selected:hover,
+.btn-select:focus, .btn-selected:focus {
+background-image: url('img/sys/common_new/resale/gradient-hover.png'); 
+background-position: center top;  
+}
+
+/* # selected, view types */
+.ticket-stubs-meta {
+float: right;
+margin-top: -15px;
+font-size: 12px;
+}
+.tickets-selected {
+float: left;
+font-weight: bold;
+color: #999;
+}
+.selected-count {
+color: #414141;
+}
+.ticket-views {
+float: left;
+margin-left: 15px;
+}
+.ticket-views a {
+margin-right: 15px;
+}
+
+/* pagination */
+.pagination-guide {
+clear: both;
+text-align: center;
+position:relative;
+z-index:2;
+}
+.pagination-controls {
+display: inline-block;
+margin: auto;
+/* curses, IE7! */
+*display: inline;
+*zoom: 1;
+}
+.pagination-arrow {
+border: 0;
+background-color: transparent;
+width: 49px;
+height: 108px;
+background-image: url('img/sys/common_new/resale/ticket-stub-nav-sprite.png');
+background-repeat: no-repeat;
+cursor: pointer;
+position: absolute;
+z-index:2;
+top: 38px;
+display:none;
+}
+.pagination-arrow-active {
+display:block;
+}
+.pagination-nav-left {
+left: -23px;
+}
+.pagination-nav-right {
+right: -24px;
+background-position: 0 -216px;
+}
+.pagination-nav-left:hover {
+background-position: 0 -108px;
+}
+.pagination-nav-right:hover {
+background-position: 0 -324px;
+}
+.pagination-list {
+margin: 0 7px;
+padding: 0;
+list-style-type: none;
+float: left;
+}
+.pagination-list li {
+margin: 0;
+padding: 0;
+float: left;
+padding-top: 10px;
+}
+.link-pagination {
+display: block;
+width: 11px;
+height: 11px;
+margin: 0 6px;
+background: url('img/sys/common_new/resale/pagination-icons.gif') 0 -11px no-repeat;
+text-indent: -9999px;
+overflow: hidden;
+}
+.pagination-active a {
+background-position: 0 0;
+}
+.pagination-tip {
+display: block;
+margin-top: 2px;
+font-size: 11px;
+font-weight: bold;
+color: #acacac;
+}
+
+/* list view */
+.sell-flow-step1 .stored-table th {
+padding-bottom: 5px;
+}
+.sell-flow-step1 .stored-table td {
+padding-top: 2px;
+}
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *\
+$STEP2
+price desired
+\* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.price-area-wrapper {
+  width: 175px;
+}
+.price-area {
+border: 1px solid #acacac;
+box-shadow: inset 0 3px 3px #dddddd;  
+margin: 5px 0 8px;
+padding-top: 12px;
+min-height: 60px;
+border:1px solid #ACACAC;
+margin:5px 0 8px;
+padding-top:12px;
+}
+.input-price-label {
+width: 100%;
+font-size: 11px;
+font-weight: bold;
+text-align: center;
+color: #999;
+display:inline-block;
+}
+.input-price {
+font-size: 30px;
+color: #414141;
+border: 0;
+text-align: center;
+white-space: nowrap;
+width:100%;
+margin:0;
+padding:0;
+}
+.price-footnote {
+font-size: 11px;
+font-weight: bold;
+line-height: 14px;
+color: #999;
+padding: 0;
+margin-bottom: 0;
+text-align: center;
+}
+.price-footnote a {
+font-weight: normal;
+}
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *\
+$STEP3
+how to receive payment
+\* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.payment-options-list {
+margin: -20px 0 0 0;
+padding: 0;
+list-style-type: none;
+}
+.payment-option {
+font-size: 14px;
+}
+.payment-option {
+padding: 20px 0 0 0;
+}
+.payment-type {
+width: 563px;
+padding: 0 0 0 20px;
+position: relative;
+}
+.payment-type.type-direct-deposit {
+padding-top: 15px;
+}
+.sample-check {
+position: absolute;
+top: 29px;
+right: 7px;
+}
+.payment-address {
+clear: right;
+}
+.payment-type .stored-address {
+line-height: 17px;
+}
+.stored-payment-type .link-edit {
+display: block;
+margin-top: 20px;  
+}
+.coming-soon {
+color: #217d45;
+font-size: 12px;
+font-weight: bold;
+text-transform: uppercase;
+padding-right: 90px;
+height: 39px;
+line-height: 39px;
+background: url('img/sys/common_new/resale/check-coming-soon.png') right no-repeat; 
+float: left;
+margin-top: -10px;
+}
+.coming-soon .input-radio {
+vertical-align: middle;
+}
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *\
+$STEP4
+credit card info
+\* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.cc-new {
+width: 563px;
+}
+.stored-table .cc-stored-select {
+padding-right: 5px;
+}
+.cc-stored .select-cell {
+padding-right: 10px;
+}
+.cc-stored .link-edit {
+display: block;
+margin-top: 20px;
+}
+.billing-same-add {
+font-size: 14px;
+}
+
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *\
+$REVIEW
+review page styles
+\* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.sell-review .page-title {
+position: relative;
+}
+.link-back {
+font-size: 14px;
+font-weight: normal;
+line-height: 20px;
+position: absolute;
+top: 4px;
+right: 0;
+}
+.display-price + .display-price {
+margin-left: 95px;
+}
+.step-details .price-recipient {
+font-size: 14px;
+font-weight: bold;
+text-decoration: underline;
+margin-bottom: 5px;
+}
+.step-details .price-breakdown p {
+margin: 0 0 10px 0;
+padding: 0;
+font-size: 14px;
+}
+.step-details .price-breakdown .popup-content p {
+font-size:11px;
+margin: 10px 0 0;
+}
+.price-breakdown .smallText {
+display: block;
+line-height: 16px;
+}
+.step-details .price-breakdown .net-price-total {
+color: #47ad45;
+}
+.sell-review .stored-payment-type {
+padding: 0;
+}
+.legal-text {
+float: left;
+width: 670px;
+font-size: 11px;
+line-height: 14px;
+margin-top: 15px;
+}
+.sell-review .btn-selected {
+cursor: default;
+background-image: url('img/sys/common_new/resale/sys/rebrand/gradient-hover.png'); 
+background-position: center top; 
+outline: 0 none;
+}
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *\
+$CONFIRMATION
+confirmation page styles
+\* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.sell-confirmation h3 {
+color: #47ad45;
+}
+.confirmation-details {
+margin-right: 60px;
+}
+.confirmation-pending .confirmation-details {
+width: auto;
+}
+.confirmation-list {
+margin: 5px 0 20px 0;
+padding: 0 0 0 15px;
+line-height: 1.5em;
+}
+.confirmation-title {
+font-size: 16px;
+}
+.confirmation-list-label {
+padding-right: 3px;
+}
+.seat-info {
+font-weight: bold;
+padding-right: 10px;
+}
+.confirmation-share p {
+margin: 6px 0;
+}
+.social-links {
+margin: 10px 0;
+}
+.link-social {
+margin-right: 30px;
+}
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *\
+$POPUPS
+\* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.popup {
+box-shadow: 0 0 5px #999;
+display:none;
+outline:none;
+}
+.popup-price {
+width: 170px;
+}
+.popup-ref {
+width: 230px;
+}
+.popup-cc {
+width: 230px;
+}
+.popup-fees {
+width: 270px;
+}
+.popup-split {
+width: 290px;
+}
+.popup p {
+margin: 10px 0 0;
+line-height: 14px;
+}
+.caret {
+position: absolute;
+width: 13px;
+height: 8px;
+right: 20px;
+}
+.caret-up {
+background: url('img/sys/common_new/resale/caret-up.png') 0 0 no-repeat;
+top: -8px;
+}
+.caret-down {
+background: url('img/sys/common_new/resale/caret-down.png') 0 0 no-repeat;
+bottom: -8px;
+}
+.popup-ref .caret {
+right: 30px;
+}
+.popup-cc .caret {
+right: auto;
+left: 20px;
+}
+.popup-fees .caret {
+left: 30px;
+}
+.popup-split .caret {
+left: 30px;
+}
+.popup-content {
+padding: 0 15px 10px 15px;
+}
+.popup-close {
+position: absolute;
+top: 5px;
+right: 5px;
+}
+.price-table {
+margin-top: 5px;
+border-spacing: 0;
+border-collapse: collapse;
+}
+.data-price {
+width: 50%;
+text-align: right;
+padding-right: 6px;
+}
+.data-total .data-price {
+padding-right: 2px;
+}
+.data-desc {
+width: 50%;
+}
+.data-fees td {
+border-bottom: 1px solid #ddd;
+padding-bottom: 4px;
+}
+.data-total td {
+padding-top: 2px;
+font-weight: bold;
+}
+.fees-note {
+display: block;
+margin-top: 5px;
+color: #999;
+}
+.popup-ref {
+text-align: center;
+}
+.popup-ref p {
+text-align: left;
+}
+.popup-ref .img-barcode {
+margin-top: 10px;
+}
+
+/* error messaging */
+.error-group, .error-link {
+font-size: 12px;
+color: #f00;
+text-decoration: none;
+}
+.cc-details th > .error-group {
+font-size: inherit;
+}
+.error-link:hover {
+color: #f00;
+text-decoration: underline;
+}
+.step-details > .error-group {
+margin-top: -10px;
+margin-bottom: 15px;
+display:none;
+}
+.error-msg {
+margin-top: 10px;
+}
+.error-list {
+margin: 5px 0 0 1.7em;
+padding: 0;
+list-style-type: disc;
+}
+.error-item {
+margin: 0;
+padding: 0;
+line-height: 1.3em;
+display:none;
+} 
+.error-label, .error-anchor, .error-anchor:hover {
+color: #f00;
+font-weight: bold;
+text-decoration: none;
+}
+.input-error,
+.input-error .widget-dropdown b b {
+border-color: #f00 !important;
+}
+
+/* event posting statuses */
+.event-details .event-status {font-size: 13px; font-weight: normal; line-height: 15px; margin: 8px 0 0; height: 15px;}
+.event-details .event-status-hdr {float: left; margin: 0 10px 0 0;}
+.event-details .event-status-text {float: left; margin: 0;}
+.event-details .event-status a {margin: 0 0 0 8px;}
+div.page-header.disable-position-relative{position:static; margin-bottom: 24px;}
+div.page-header.disable-position-relative .event-info{width:100%;}
+div.page-header.disable-position-relative .parent-value-prop{position: relative; margin: -25px 0 25px 0;}
