@@ -1,44 +1,10 @@
 $( document ).ready( function() {
 
     //*******************************************
-    //* TEST DATA
-    //*******************************************
-
-    var ticket = {
-        "ticket_desc": {
-            "barcode": 123,
-            "seat": "Section A Row 2",
-            "team": "Ticket Master Team C",
-            "price": "$9001",
-            "time_to_event": 28
-        },
-        "predictions": []
-    };
-    var lastPrice = 0;
-    for ( var i = 0; i < 5; i++ ) {
-        var predictions = {
-            "days": i,
-            "pairs": []
-        }
-        lastPrice = 250;
-        for ( var j = 1; j < 4; j++ ) {
-            var scale =  9 * (lastPrice/10);
-            lastPrice = Math.round((Math.random()*scale)*100)/100;
-            predictions.pairs.push({
-                "price": lastPrice,
-                "probability": j
-            });
-        }
-        ticket.predictions.push(predictions);
-    }
-
-
-    //*******************************************
     //* INIT CLASSES
     //*******************************************
     widget = new PriceRecWidget();
 
-    graph = new PredictionGraph(ticket.predictions);
 	var bCode;
     //*******************************************
     //* SET INIT STATE
@@ -104,6 +70,7 @@ PredictionGraph = function( predictions ) {
     pScale = ['black', 'green', 'yellow', 'red'];
 
     // Draw graph svg element
+    console.log("Hi");
     self.graph = d3.select( ".graph-container" )
     .append( "svg" )
     .attr( "id", "prediction-graph" )
@@ -147,6 +114,7 @@ PredictionGraph = function( predictions ) {
 var PriceRecWidget = function() {
 	var self = this;
 	var MAXBARCODELENGTH = 120; //TODO: Fix this number.
+    self.graph = null;
 
 	self.SubmitBarcode = function(bCode) {
 		var barcode = $( '#barcode' ).val();
@@ -181,24 +149,33 @@ var PriceRecWidget = function() {
 
 	self.RenderRecommendation = function(bCode, oPrice) {
 		$(".prompt").hide();
-		// TODO: Build the graph
 		$("div.recommendations").show();
-		// mockup demo code
-		var reurl = 'http://ec2-50-19-197-53.compute-1.amazonaws.com:40000/axis2/services/Recommender/echo?message=111001&response=application/json';
-		var jsonurl = 'http://hellojohnlee.homeip.net:40000/axis2/services/Recommender/echo?message=' + bCode + '&response=text/plain';
-		var jqxhr = $.getJSON(jsonurl, {
-		})
-			.done(function(data) {
-				var t = $.parseJSON(data.return);
-				var price = t.price;
-				if (oPrice > parseInt(price)) {
-					$("div.suggestion").css('color', 'red');
-				} else $("div.suggestion").css('color', 'black');
-				$("div.suggestion").text("$" + t.price);
-				$("div.rec-ticket-info").text("Ticket Number: " + bCode);
-				$("div.rec-ticket-info2").text("Days to Event: " + t.daysToEvent);
-			});
-		// end mockup demo code
+        Request({
+                url: '/priceRec',
+                type: 'POST',
+                data: {
+                    barcode: bCode
+                }
+            },
+            function (error, ticketData) {
+                if ( error ) {
+                    $("div.suggestion").text("Could not retrieve.");
+                    return;
+                }
+                for (var info in ticketData.ticket_desc) {
+                    if (ticketData.ticket_desc.hasOwnProperty(info)) {
+                        $("#info-" + info).html(ticketData.ticket_desc[info]);
+                    }
+                }
+                if ( ticketData.predictions[0].pairs[0].price < oPrice ) 
+                    $("div.suggestion").css('color', 'red');
+                else
+                    $("div.suggestion").css('color', 'black');
+
+                $("div.suggestion").text("$" + ticketData.predictions[0].pairs[0].price);
+                self.graph = new PredictionGraph(ticketData.predictions);
+
+            })
 		self.SelectTab("simple");
 	};
 

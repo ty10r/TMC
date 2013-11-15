@@ -30,7 +30,37 @@ app.get( '/my_account', function( request, response ) {
 });
 
 app.post( '/priceRec', function( request, response ) {
-    api.JsonResponse( 'Got the barcode, will you get this message?', response, 200 );
+
+    console.log('got request')
+    var ticket = {
+        "ticket_desc": {
+            "barcode": 123,
+            "seat": "Section A Row 2",
+            "team": "Ticket Master Team C",
+            "price": "$9001",
+            "time": "28 days"
+        },
+        "predictions": []
+    };
+    var lastPrice = 0;
+    for ( var i = 0; i < 5; i++ ) {
+        var predictions = {
+            "days": i,
+            "pairs": []
+        }
+        lastPrice = 250;
+        for ( var j = 1; j < 4; j++ ) {
+            var scale =  9 * (lastPrice/10);
+            lastPrice = Math.round((Math.random()*scale)*100)/100;
+            predictions.pairs.push({
+                "price": lastPrice,
+                "probability": j
+            });
+        }
+        ticket.predictions.push(predictions);
+    }
+
+    api.JsonResponse( ticket, response );
 });
 
 app.listen(8000);
