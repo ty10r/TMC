@@ -1,5 +1,5 @@
 section.price-rec {
-	width: 50%;
+	width: 660px;
 	margin: 0 auto;
 	display: inline-block;
 	text-align: center;
@@ -49,4 +49,16 @@ section.price-rec {
 }
 .active-tab {
 	display: block;
+}
+
+.price {
+	font-size: 40px;
+	color: #9f060c;
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
 }
