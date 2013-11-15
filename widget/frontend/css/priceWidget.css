@@ -65,6 +65,7 @@ section.price-rec {
 	fill: none;
 	stroke: black;
 	shape-rendering: crispEdges;
+}
 
 .price-enter > div {
 	float: left;
