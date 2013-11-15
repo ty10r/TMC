@@ -1,8 +1,8 @@
 <section class="price-rec">
 	<div class="prompt">
-		<h1 class="description">Enter your Ticket's Barcode</h2>
+		<h2 class="description">Enter your Ticket's Barcode</h2>
 		<div id="ticket">
-			<input id="barcode" type="text" placeholder="Your Ticket's Barcode">
+			<input id="barcode" type="text" placeholder="Your Ticket's Barcode" value="">
 			<button id="submit-barcode" class="button">Get Recommendations</button>
 		</div>
 		<div class="error-feedback"></div>
@@ -10,20 +10,25 @@
 
 	<div class="recommendations">
 		<div class="tab-nav">
-			<div class="tab-selector" id="simple"><a href="#">Recommendation</a></div>
-			<div class="tab-selector" id="info"><a href="#">Ticket Info</a></div>
-			<div class="tab-selector" id="advanced"><a href="#">Advanced</a></div>
+			<div class="tab-selector" id="simple"><a href="javascript:void(0);">Recommendation</a></div>
+			<div class="tab-selector" id="info"><a href="javascript:void(0);">Ticket Info</a></div>
+			<div class="tab-selector" id="advanced"><a href="javascript:void(0);">Advanced</a></div>
 		</div>
 		<div class="tab" id="simple-tab">
-			<h2 class="description">Suggested Price</h1>
-			<div class="suggestion">$40</div>
+			<h2 class="description">Suggested Price</h2>
+			<div class="suggestion" id="suggested-price">Retrieving...</div>
+			<h3 class="description">Enter Another Ticket's Barcode</h3>
+			<div id="ticket">
+				<input id="barcode" type="text" placeholder="Your Ticket's Barcode" value="">
+				<button id="submit-barcode" class="button">Get Recommendations</button>
+			</div>
+			<!--
+			<div class="error-feedback"></div> -->
 		</div>
 		<div class="tab" id="info-tab">
-			<ul class="ticket-info">
-				<li>First thing</li>
-				<li>Second thing</li>
-				<li>Third thing</li>
-			</ul>
+			<h2 class="description">Ticket Detais</h2>
+			<div class="rec-ticket-info">Ticket Details</div>
+			<div class="rec-ticket-info2">Ticket Details</div>
 		</div>
 		<div class="tab" id="advanced-tab">
 			<h2 class="description">Price Probabilities over Time</h2>

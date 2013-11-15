@@ -1,5 +1,4 @@
 section.price-rec {
-	width: 50%;
 	margin: 0 auto;
 	display: inline-block;
 	text-align: center;
@@ -8,6 +7,8 @@ section.price-rec {
 	border-color: lightgrey;
 	margin-top: 15px;
 	box-shadow: inset 0 3px 3px #dddddd;
+	width: 350px;
+	height: 250px;
 }
 
 .price-rec div#ticket {
@@ -15,12 +16,14 @@ section.price-rec {
 }
 
 .price-rec input#barcode {
+	font-size: 16px;
 	display: block;
 	width: 50%;
 	margin: auto;
 	text-align: center;
 	margin-bottom: 5px;
 	margin-top: 10px;
+	height: 25px;
 }
 
 .error-feedback {
@@ -37,16 +40,45 @@ section.price-rec {
 
 .tab-selector {
 	display: inline;
-	margin-right: 30px;
+	margin-right: 10px;
 	padding: 12px;
 }
 
 .tab {
 	display: none;
 }
+
 .active-selector {
 	background-color: #efefef;
 }
 .active-tab {
 	display: block;
+}
+
+.price-enter > div {
+	float: left;
+	width: 30%;
+}
+
+.description {
+	margin-top: 30px;
+}
+
+.rec-ticket-info {
+	font-size: 16px;
+	text-align: left;
+	margin-top: 10px;
+	margin-left: 35px;
+}
+
+.rec-ticket-info2 {
+	font-size: 16px;
+	text-align: left;
+	margin-top: 10px;
+	margin-left: 35px;
+}
+
+.suggestion {
+	font-size: 16px;
+	margin-top: 5px;
 }

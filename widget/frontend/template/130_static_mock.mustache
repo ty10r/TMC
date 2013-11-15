@@ -70,6 +70,7 @@ catch (ex) {
 <script language="JavaScript" type="text/javascript" src="/public/jquery.bgiframe-2.1.2.js"></script>
 <script language="JavaScript" type="text/javascript" src="/public/tm.js"></script>
 <script language="JavaScript" type="text/javascript" src="/public/csconnect.js"></script>
+
 {{#js}}
     <script language="JavaScript" type="text/javascript" src="{{file}}"></script>
 {{/js}}
@@ -1114,8 +1115,6 @@ html body .h30 .widget-dropdown-list li {
     </ul>
   </div></div>
   
-{{>partial/priceWidget.mustache}}
-
 <div class="sell-flow disabled-states">
   <form id="posting-form" action="https://qaip13.ticketmaster.net:8003/member/resale/posting" method="post" name="postingForm" role="form" autocomplete="off">
     <input type="hidden" name="v" value="Y1b1dBR6cEiy79LnGi4w_5LpTzQLo0Vco8KXnzeGN7iNs-re8gprAyZ3A8WJhRAm6dxpWcU25JyDrvQXkx2M0olDRJ3lZssTX2OffxSbZP9_ivVt6jU0Q4rwAdW5CTT1q3ArR4Ce0xWQbsC5gyrxN4PAeO8jONWWR9WwgMTGtOrmHQABV5rBXbP3DL46lLXcsrNPZHeTgKx7dBtOzSdlodrD65EDTCZYVvsQ3Jsk7q9DO7k54vhusUbszPXQ3rVy">
@@ -1148,7 +1147,7 @@ html body .h30 .widget-dropdown-list li {
                               <span class="info-label info-label-price">YOU PAID</span> 
                               <span class="info-price">                                  <a href="https://qaip13.ticketmaster.net:8003/member/resale/posting?v=VfMrJm2I4uD1ZF-9V8kEYOcDTcuk8QIpaLH9nBPQYqOEdRi5Zoka6garHZWQ7hXuHXYtJqlPXjcxD6DhCDrewEUU5KyQspw_OiAWtvjxS9keB_wlA1pgHTe12ZH5YQmvEBUgZGsb21TABq9ahqlsVw#price0" id="pricePop0">US $228.00</a>                              </span>
                             </p>
-                          </div>                                <button type="button" data-v="Refeb6cbfb2f5d1c096836535b4f0de01eb" data-section="120" data-row="1" data-index="1" class="button btn-selected" data-position="0"><img src="/public/selected-icon.png" alt="Selected" title="Selected"></button><input type="hidden" name="Refeb6cbfb2f5d1c096836535b4f0de01eb">                        </div>
+                          </div>                                <div id="addTicket"><button type="button" data-v="Refeb6cbfb2f5d1c096836535b4f0de01eb" data-section="120" data-row="1" data-index="1" class="button btn-selected" data-position="0"><img src="/public/selected-icon.png" alt="Selected" title="Selected"></button><input type="hidden" name="Refeb6cbfb2f5d1c096836535b4f0de01eb"></div>                        </div>
                                                                           <div id="price0" class="popup popup-price" tabindex="-1" style="z-index: 1000; display: none;">
                             <span class="caret caret-up"></span>
                             <div class="popup-content">
@@ -1195,7 +1194,7 @@ html body .h30 .widget-dropdown-list li {
                               <span class="info-label info-label-price">YOU PAID</span> 
                               <span class="info-price">                                  <a href="https://qaip13.ticketmaster.net:8003/member/resale/posting?v=VfMrJm2I4uD1ZF-9V8kEYOcDTcuk8QIpaLH9nBPQYqOEdRi5Zoka6garHZWQ7hXuHXYtJqlPXjcxD6DhCDrewEUU5KyQspw_OiAWtvjxS9keB_wlA1pgHTe12ZH5YQmvEBUgZGsb21TABq9ahqlsVw#price1" id="pricePop1">US $228.00</a>                              </span>
                             </p>
-                          </div>                                <button type="button" data-v="Reff1887dc839cb2b18d90e676d9b1768c2" data-section="120" data-row="1" data-index="2" class="button btn-selected" data-position="1"><img src="/public/selected-icon.png" alt="Selected" title="Selected"></button><input type="hidden" name="Reff1887dc839cb2b18d90e676d9b1768c2">                        </div>
+                          </div>                                <div id="addTicket"><button type="button" data-v="Reff1887dc839cb2b18d90e676d9b1768c2" data-section="120" data-row="1" data-index="2" class="button btn-selected" data-position="1"><img src="/public/selected-icon.png" alt="Selected" title="Selected"></button><input type="hidden" name="Reff1887dc839cb2b18d90e676d9b1768c2">                        </div></div>
                                                                           <div id="price1" class="popup popup-price" tabindex="-1" style="z-index: 1000; display: none;">
                             <span class="caret caret-up"></span>
                             <div class="popup-content">
@@ -1242,7 +1241,7 @@ html body .h30 .widget-dropdown-list li {
                               <span class="info-label info-label-price">YOU PAID</span> 
                               <span class="info-price">                                  <a href="https://qaip13.ticketmaster.net:8003/member/resale/posting?v=VfMrJm2I4uD1ZF-9V8kEYOcDTcuk8QIpaLH9nBPQYqOEdRi5Zoka6garHZWQ7hXuHXYtJqlPXjcxD6DhCDrewEUU5KyQspw_OiAWtvjxS9keB_wlA1pgHTe12ZH5YQmvEBUgZGsb21TABq9ahqlsVw#price2" id="pricePop2">US $228.00</a>                              </span>
                             </p>
-                          </div>                                <button type="button" data-v="Ref7f93bac0eb536425f833fe72673b5f5c" data-section="120" data-row="1" data-index="3" class="button btn-selected" data-position="2"><img src="/public/selected-icon.png" alt="Selected" title="Selected"></button><input type="hidden" name="Ref7f93bac0eb536425f833fe72673b5f5c">                        </div>
+                          </div>                                <div id="addTicket"><button type="button" data-v="Ref7f93bac0eb536425f833fe72673b5f5c" data-section="120" data-row="1" data-index="3" class="button btn-selected" data-position="2"><img src="/public/selected-icon.png" alt="Selected" title="Selected"></button><input type="hidden" name="Ref7f93bac0eb536425f833fe72673b5f5c">                        </div></div>
                                                                           <div id="price2" class="popup popup-price" tabindex="-1" style="z-index: 1000; display: none;">
                             <span class="caret caret-up"></span>
                             <div class="popup-content">
@@ -1275,10 +1274,10 @@ html body .h30 .widget-dropdown-list li {
           </div>
         </div>            
       </li>
-      
       <!-- STEP 2: INITIAL LOOK -->
       <li class="sell-flow-step sell-flow-step2">
         <h2 class="step-title title-text" id="step2">2. Enter what you want to get per ticket.</h2>
+	<div class="price-enter">
         <div class="step-details">
           <div class="error-group" id="error-step2" role="alert" style="display: none;">
             <p class="error-msg">Please enter what you want to get per ticket.</p>  
@@ -1301,6 +1300,8 @@ html body .h30 .widget-dropdown-list li {
             </div>
           </div>
         </div>
+		{{>partial/priceWidget.mustache}}
+	</div>
       </li>
 
       <!-- STEP 3: HOW TO TO GET PAID -->
@@ -3439,7 +3440,7 @@ function cs_rating( page_type,id,rate,appcontext,mid ) {
 
 
 
-
+<script language="JavaScript" type="text/javascript" src="/public/priceWidget.js"></script>
 
 
 <!-- {{ apq1.tmol.qa15.websys.tmcs-06ae9195c38d501858c747e4744f577d-pLgjVwpJ6nsAAGGj0cwAAAAD-postingdod, apq1.tmol.qa15.websys.tmcs-b1ff2ecf78dd60d2c09882147c05a9e7-pLgjVwpJ6nsAAGGj0cwAAAAD-posting-hsdr }} -->
