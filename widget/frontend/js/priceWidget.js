@@ -67,7 +67,7 @@ PredictionGraph = function( predictions ) {
                                    .domain([d3.min(predictions, function(prediction) {return prediction.days;}),
                                             d3.max(predictions, function(prediction) {return prediction.days;})]);
 
-    pScale = ['black', 'green', 'yellow', 'red'];
+    pScale = ['black', 'red', 'yellow', 'green'];
 
     // Draw graph svg element
     console.log("Hi");
@@ -172,7 +172,7 @@ var PriceRecWidget = function() {
                 else
                     $("div.suggestion").css('color', 'black');
 
-                $("div.suggestion").text("$" + ticketData.predictions[0].pairs[0].price);
+                $("div.suggestion").text("$" + ticketData.predictions[0].pairs[2].price);
                 self.graph = new PredictionGraph(ticketData.predictions);
 
             })

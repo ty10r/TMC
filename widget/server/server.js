@@ -31,7 +31,6 @@ app.get( '/my_account', function( request, response ) {
 
 app.post( '/priceRec', function( request, response ) {
 
-    console.log('got request')
     var ticket = {
         "ticket_desc": {
             "barcode": 123,
