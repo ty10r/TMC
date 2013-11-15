@@ -1,38 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore" xmlns:o="http://wireframesketcher.com/1.0/model/overrides">
-  <widgets xsi:type="model:Master" id="2" measuredWidth="980" measuredHeight="388" dimmed="true">
-    <screen xsi:type="model:Screen" href="Search%20-%20Template.screen#/"/>
-    <overrides>
-      <widgetChanges xsi:type="o:Insert" newIndex="7">
-        <object xsi:type="model:Note" x="74" y="189" text="Possibly display product description on&#xD;&#xA;default page as nothing is displayed&#xD;&#xA;initially" annotation="true">
-          <font/>
-        </object>
-      </widgetChanges>
-      <widgetChanges xsi:type="o:Insert" newIndex="7">
-        <object xsi:type="model:Note" x="376" y="88" width="177" text="3) Data is filled" annotation="true">
-          <font/>
-        </object>
-      </widgetChanges>
-      <widgetChanges xsi:type="o:Insert" newIndex="7">
-        <object xsi:type="model:Note" x="368" y="51" width="185" height="25" text="2) User clicks Search button" annotation="true">
-          <font/>
-        </object>
-      </widgetChanges>
-      <widgetChanges xsi:type="o:Insert" newIndex="7">
-        <object xsi:type="model:Note" x="192" y="9" text="1) User enters ticket bar code" annotation="true">
-          <font/>
-        </object>
-      </widgetChanges>
-      <widgetChanges xsi:type="o:Insert" newIndex="7">
-        <object xsi:type="model:Arrow" x="296" y="101" width="89" height="33" annotation="true" direction="bottom"/>
-      </widgetChanges>
-      <widgetChanges xsi:type="o:Insert" newIndex="7">
-        <object xsi:type="model:Arrow" x="278" y="58" width="99" height="12" annotation="true" direction="bottom"/>
-      </widgetChanges>
-      <widgetChanges xsi:type="o:Insert" newIndex="7">
-        <object xsi:type="model:Arrow" x="148" y="21" width="53" height="49" annotation="true" direction="bottom"/>
-      </widgetChanges>
-    </overrides>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:WidgetGroup" id="3" measuredWidth="980" measuredHeight="388" name="Search - Template">
+    <widgets xsi:type="model:Master" id="4" x="5" measuredWidth="128" measuredHeight="38" dimmed="true">
+      <screen xsi:type="model:Screen" href="assets/Header.screen#/"/>
+    </widgets>
+    <widgets xsi:type="model:Master" id="5" y="347" measuredWidth="980" measuredHeight="41">
+      <screen xsi:type="model:Screen" href="assets/Footer.screen#/"/>
+    </widgets>
+    <widgets xsi:type="model:WidgetGroup" id="6" x="32" y="40" width="305" measuredWidth="305" measuredHeight="260">
+      <widgets xsi:type="model:Rectangle" id="7" width="305" height="260" measuredWidth="305" measuredHeight="260">
+        <font/>
+      </widgets>
+    </widgets>
+    <widgets xsi:type="model:TabbedPane" id="8" x="32" y="83" width="305" height="217" text="Prices, Graph, Details" measuredWidth="305" measuredHeight="217" selection="0">
+      <items link="Prices.screen" x="10" y="0" width="51" height="27" text="Prices"/>
+      <items link="Graph.screen" x="61" y="0" width="52" height="27" text="Graph"/>
+      <items link="Details.screen" x="113" y="0" width="55" height="27" text="Details"/>
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:TextField" id="9" x="97" y="53" width="104" measuredWidth="104" measuredHeight="23">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="10" x="42" y="53" text="Bar Code:" measuredWidth="56" measuredHeight="23">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Button" id="11" x="208" y="53" text="Search" measuredWidth="55" measuredHeight="25" background="#9fc5e8" link="Prices.screen">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Arrow" id="12" x="132" y="16" width="53" height="49" measuredWidth="53" measuredHeight="49" annotation="true" direction="bottom"/>
+    <widgets xsi:type="model:Arrow" id="13" x="262" y="53" width="99" height="12" measuredWidth="99" measuredHeight="12" annotation="true" direction="bottom"/>
+    <widgets xsi:type="model:Arrow" id="14" x="280" y="96" width="89" height="33" measuredWidth="89" measuredHeight="33" annotation="true" direction="bottom"/>
+    <widgets xsi:type="model:Note" id="15" x="176" y="4" text="1) User enters ticket bar code" measuredWidth="162" measuredHeight="25" annotation="true">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Note" id="16" x="352" y="46" width="185" height="25" text="2) User clicks Search button" measuredWidth="185" measuredHeight="25" annotation="true">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Note" id="17" x="360" y="83" width="177" text="3) Data is filled" measuredWidth="177" measuredHeight="25" annotation="true">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Note" id="18" x="58" y="184" text="Possibly display product description on&#xD;&#xA;default page as nothing is displayed&#xD;&#xA;initially" measuredWidth="217" measuredHeight="55" annotation="true">
+      <font/>
+    </widgets>
   </widgets>
   <hRuler/>
   <vRuler/>
