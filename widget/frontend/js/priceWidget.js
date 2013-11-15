@@ -39,9 +39,7 @@ $( document ).ready( function() {
     widget = new PriceRecWidget();
 
     graph = new PredictionGraph(ticket.predictions);
-
-
-
+	var bCode;
     //*******************************************
     //* SET INIT STATE
     //*******************************************
@@ -53,8 +51,16 @@ $( document ).ready( function() {
     $('#submit-barcode').bind('click', function( event ) {
         event.preventDefault();
         event.stopPropagation();
-        widget.SubmitBarcode();
-    });
+
+		widget.SubmitBarcode(bCode);
+	});
+	
+	// mock demo for ticket stub checkboxes
+	$( "#addTicket button" ).bind('click', function( event ) {
+		bCode = 111000 + $(this).attr("data-index");
+		$( '#barcode' ).val(bCode);
+	});
+	// end mock demo
 
     $('.tab-selector').bind('click', function( event ) {
         event.preventDefault();
@@ -66,8 +72,8 @@ $( document ).ready( function() {
 
 // d3 graph
 PredictionGraph = function( predictions ) {
-    var width = 640;
-    var height = 360;
+    var width = 620;
+    var height = 320;
     var margin = 40;
     var priceTicks = 5;
     var recWidth = 20;
@@ -87,7 +93,7 @@ PredictionGraph = function( predictions ) {
         }));
     }
 
-    yScale = d3.scale.linear().range([height - margin, margin])
+    yScale = d3.scale.linear().range([height - margin*2, margin])
                                    .domain([d3.min(minPrices, function(price) {return price;}),
                                              d3.max(maxPrices, function(price) {return price;})])
 
@@ -109,7 +115,7 @@ PredictionGraph = function( predictions ) {
     var yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(6);
     graph.append("g")
          .attr("class", "axis")
-         .attr("transform", "translate(0," + (height - margin) + ")")
+         .attr("transform", "translate(20," + (height - margin) + ")")
          .call(xAxis);
 
     graph.append("g")
@@ -129,7 +135,7 @@ PredictionGraph = function( predictions ) {
     .data(flatPredictions)
     .enter()      
     .append("rect")
-    .attr("x", function(d) {return xScale(d[0]) - recWidth/2;})
+    .attr("x", function(d) {return xScale(d[0]) - recWidth/2+20;})
     .attr("y", function(d) {return yScale(d[1]);})
     .attr("fill", function(d) { return pScale[d[2]];})
     .attr("width", function(d) {return recWidth;})
@@ -139,55 +145,70 @@ PredictionGraph = function( predictions ) {
 };
 
 var PriceRecWidget = function() {
-    var self = this;
-    var MAXBARCODELENGTH = 120; //TODO: Fix this number.
+	var self = this;
+	var MAXBARCODELENGTH = 120; //TODO: Fix this number.
 
-    self.SubmitBarcode = function() {
-        var barcode = $( '#barcode' ).val();
-        if ( !barcode ) {
-            self.ReportError( 'Please input a barcode' );
-            return;
-        }
-        if ( barcode.length >  MAXBARCODELENGTH ) {
-            self.ReportError( 'Please input a valid barcode' );
-            return;
-        }
+	self.SubmitBarcode = function(bCode) {
+		var barcode = $( '#barcode' ).val();
+		if ( !barcode ) {
+			self.ReportError( 'Please input a barcode' );
+			return;
+		}
+		if ( barcode.length >  MAXBARCODELENGTH ) {
+			self.ReportError( 'Please input a valid barcode' );
+			return;
+		}
+		
+		Request({
+			url: '/priceRec',
+			type: 'POST',
+			data: {
+				barcode: barcode
+			}
+		},
+		function( error, message ) {
+			if ( error ) {
+				self.ReportError( error );
+			}
+			self.RenderRecommendation(bCode, 228);
+		});
+	};
 
-        Request({
-            url: '/priceRec',
-            type: 'POST',
-            data: {
-                barcode: barcode
-            }
-        },
-        function( error, message ) {
-            if ( error ) {
-                self.ReportError( error );
-            }
-            self.RenderRecommendation();
-        });
-    };
+	self.ReportError = function( error ) {
+		$('.price-rec .error-feedback').show();
+		$('.price-rec .error-feedback').html(error);
+	};
 
-    self.ReportError = function( error ) {
-        $('.price-rec .error-feedback').show();
-        $('.price-rec .error-feedback').html(error);
-    };
+	self.RenderRecommendation = function(bCode, oPrice) {
+		$(".prompt").hide();
+		// TODO: Build the graph
+		$("div.recommendations").show();
+		// mockup demo code
+		var reurl = 'http://ec2-50-19-197-53.compute-1.amazonaws.com:40000/axis2/services/Recommender/echo?message=111001&response=application/json';
+		var jsonurl = 'http://hellojohnlee.homeip.net:40000/axis2/services/Recommender/echo?message=' + bCode + '&response=text/plain';
+		var jqxhr = $.getJSON(jsonurl, {
+		})
+			.done(function(data) {
+				var t = $.parseJSON(data.return);
+				var price = t.price;
+				if (oPrice > parseInt(price)) {
+					$("div.suggestion").css('color', 'red');
+				} else $("div.suggestion").css('color', 'black');
+				$("div.suggestion").text("$" + t.price);
+				$("div.rec-ticket-info").text("Ticket Number: " + bCode);
+				$("div.rec-ticket-info2").text("Days to Event: " + t.daysToEvent);
+			});
+		// end mockup demo code
+		self.SelectTab("simple");
+	};
 
-    self.RenderRecommendation = function( ) {
-        $(".prompt").hide();
-        // TODO: Build the graph
-        $("div.recommendations").show();
-        self.SelectTab("simple");
-    };
-
-    self.SelectTab = function( tabNavId ) {
-        $('.tab-selector').attr("class", "tab-selector");
-        $('.tab').attr("class", "tab");
-        $('#' + tabNavId).attr("class", "tab-selector active-selector");
-        $('#' + tabNavId +'-tab' ).attr("class", "tab active-tab");
-    }
+	self.SelectTab = function( tabNavId ) {
+		$('.tab-selector').attr("class", "tab-selector");
+		$('.tab').attr("class", "tab");
+		$('#' + tabNavId).attr("class", "tab-selector active-selector");
+		$('#' + tabNavId +'-tab' ).attr("class", "tab active-tab");
+	}
 }
-
 
 // API Request Helper
 Request = function( params, callback ) {
