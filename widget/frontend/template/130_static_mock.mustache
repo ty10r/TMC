@@ -1130,7 +1130,11 @@ html body .h30 .widget-dropdown-list li {
           <div class="error-group" id="error-step1" role="alert" style="display: none;"><p class="error-msg">Please select seats that are next to each other.</p></div>
           <div class="ticket-stubs-container">
             <input type="hidden" id="tickets" value="" name="tickets">
-            <div class="ticket-stubs">              <ul class="stubs-container clearfix" style="width:729px">                      <li class="ticket-stub stub-standard floatLeft">
+            <div class="ticket-stubs">              
+              <ul class="stubs-container clearfix" style="width:729px">                      
+              <div class="row">
+              <div class="col-md-5">
+              <li class="ticket-stub stub-standard floatLeft">
                         <div class="ticket-stub-header">
                           <table class="ticket-location location-standard">
                             <tbody>
@@ -1149,35 +1153,38 @@ html body .h30 .widget-dropdown-list li {
                               <span class="info-label info-label-price">YOU PAID</span> 
                               <span class="info-price">                                  <a href="https://qaip13.ticketmaster.net:8003/member/resale/posting?v=VfMrJm2I4uD1ZF-9V8kEYOcDTcuk8QIpaLH9nBPQYqOEdRi5Zoka6garHZWQ7hXuHXYtJqlPXjcxD6DhCDrewEUU5KyQspw_OiAWtvjxS9keB_wlA1pgHTe12ZH5YQmvEBUgZGsb21TABq9ahqlsVw#price0" id="pricePop0">US $228.00</a>                              </span>
                             </p>
-                          </div>                                <div id="addTicket"><button type="button" data-v="Refeb6cbfb2f5d1c096836535b4f0de01eb" data-section="120" data-row="1" data-index="1" class="button btn-selected" data-position="0"><img src="/public/selected-icon.png" alt="Selected" title="Selected"></button><input type="hidden" name="Refeb6cbfb2f5d1c096836535b4f0de01eb"></div>                        </div>
-                                                                          <div id="price0" class="popup popup-price" tabindex="-1" style="z-index: 1000; display: none;">
-                            <span class="caret caret-up"></span>
-                            <div class="popup-content">
-                              <table class="price-table">
-                                <tbody>
-                                  <tr class="data-ticket">
-                                    <td class="data-price">$225.00</td>
-                                    <td class="data-desc">(ticket)</td>
-                                  </tr>
-                                  <tr class="data-fees">
-                                    <td class="data-price"><span class="floatLeft">+</span> $3.00</td>
-                                    <td class="data-desc">(fees/taxes)</td>
-                                  </tr>
-                                  <tr class="data-total">
-                                    <td class="data-price">$228.00*</td>
-                                    <td class="data-desc">USD</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              <span class="fees-note">*Plus order processing fee.</span>
-                            </div>
-                            <a class="popup-close" role="button" id="priceClose0" href="javascript:void(0)">
-                              <img src="/public/icn_close.gif" alt="Close">
-                            </a> 
+                        </div>                                <div id="addTicket"><button type="button" data-v="Refeb6cbfb2f5d1c096836535b4f0de01eb" data-section="120" data-row="1" data-index="1" class="button btn-selected" data-position="0"><img src="/public/selected-icon.png" alt="Selected" title="Selected"></button><input type="hidden" name="Refeb6cbfb2f5d1c096836535b4f0de01eb"></div>                        </div>
+                                                                        <div id="price0" class="popup popup-price" tabindex="-1" style="z-index: 1000; display: none;">
+                          <span class="caret caret-up"></span>
+                          <div class="popup-content">
+                            <table class="price-table">
+                              <tbody>
+                                <tr class="data-ticket">
+                                  <td class="data-price">$225.00</td>
+                                  <td class="data-desc">(ticket)</td>
+                                </tr>
+                                <tr class="data-fees">
+                                  <td class="data-price"><span class="floatLeft">+</span> $3.00</td>
+                                  <td class="data-desc">(fees/taxes)</td>
+                                </tr>
+                                <tr class="data-total">
+                                  <td class="data-price">$228.00*</td>
+                                  <td class="data-desc">USD</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <span class="fees-note">*Plus order processing fee.</span>
                           </div>
-                          <script type="text/javascript">
-                            resale_posting.popup("pricePop0","price0","priceClose0","right",15);                          
-                          </script>                      </li>                      <li class="ticket-stub stub-standard floatLeft">
+                          <a class="popup-close" role="button" id="priceClose0" href="javascript:void(0)">
+                            <img src="/public/icn_close.gif" alt="Close">
+                          </a> 
+                        </div>
+                        <script type="text/javascript">
+                          resale_posting.popup("pricePop0","price0","priceClose0","right",15);                          
+                        </script>                      </li>
+                        </div>
+                        <div class="col-md-5">
+                        <li class="ticket-stub stub-standard floatLeft">
                         <div class="ticket-stub-header">
                           <table class="ticket-location location-standard">
                             <tbody>
@@ -1224,7 +1231,10 @@ html body .h30 .widget-dropdown-list li {
                           </div>
                           <script type="text/javascript">
                             resale_posting.popup("pricePop1","price1","priceClose1","right",15);                          
-                          </script>                      </li>                      <li class="ticket-stub stub-standard floatLeft">
+                          </script>                      </li>                      
+                          </div>
+                          <div class = "col-md-5">
+                          <li class="ticket-stub stub-standard floatLeft">
                         <div class="ticket-stub-header">
                           <table class="ticket-location location-standard">
                             <tbody>
@@ -1271,7 +1281,11 @@ html body .h30 .widget-dropdown-list li {
                           </div>
                           <script type="text/javascript">
                             resale_posting.popup("pricePop2","price2","priceClose2","right",15);                          
-                          </script>                      </li>              </ul>            </div>
+                          </script>                      </li>
+                          </div>
+                          </div>
+                          </ul>            
+                          </div>
                         
           </div>
         </div>            
@@ -1280,6 +1294,8 @@ html body .h30 .widget-dropdown-list li {
       <li class="sell-flow-step sell-flow-step2">
         <h2 class="step-title title-text" id="step2">2. Enter what you want to get per ticket.</h2>
 	<div class="price-enter">
+        <div class="row">
+        <div class="col-md-3"
         <div class="step-details">
           <div class="error-group" id="error-step2" role="alert" style="display: none;">
             <p class="error-msg">Please enter what you want to get per ticket.</p>  
@@ -1302,14 +1318,20 @@ html body .h30 .widget-dropdown-list li {
             </div>
           </div>
         </div>
+    <div class="col-md-4">
 		{{>partial/priceWidget.mustache}}
+    </div>
 	</div>
+  </div>
       </li>
 
       <!-- STEP 3: HOW TO TO GET PAID -->
       <li class="sell-flow-step sell-flow-step3 ">
         <div class="posting-step-overlay"></div>
+        <div class = "row">
         <h3 class="step-title title-text" id="step3">3. Choose how you want to get paid.</h3>
+        </div>
+            <div class="row">
         <div class="step-details">
           <div class="error-group" id="error-step3" role="alert">
             <p class="error-msg">Please fix the following first:</p>
@@ -1358,7 +1380,7 @@ html body .h30 .widget-dropdown-list li {
                   <label class="input-text-label input-text-label-routenum">Routing Number <input id="routing-number" type="text" value="" name="routing_number" maxlength="16" aria-required="true" class="input-text required"></label>
                   </div>
                 </div>
-              </div>                          </li>
+              </div></div>                          </li>
 
             <!-- CHECK: INITIAL STATE -->
             <li class="payment-option clearfix">
@@ -1368,7 +1390,9 @@ html body .h30 .widget-dropdown-list li {
         </div>
       </li>
 
-      <!-- STEP 4: CREDIT CARD - NEW -->        <li class="sell-flow-step sell-flow-step4 ">
+      <!-- STEP 4: CREDIT CARD - NEW -->        
+      <div class="row">
+      <li class="sell-flow-step sell-flow-step4 ">
           <div class="posting-step-overlay"></div>
           <h2 class="step-title title-text" id="step4">4. Confirm your credit card. <span class="smallText"><a id="ccPop" href="https://qaip13.ticketmaster.net:8003/member/resale/posting?v=VfMrJm2I4uD1ZF-9V8kEYOcDTcuk8QIpaLH9nBPQYqOEdRi5Zoka6garHZWQ7hXuHXYtJqlPXjcxD6DhCDrewEUU5KyQspw_OiAWtvjxS9keB_wlA1pgHTe12ZH5YQmvEBUgZGsb21TABq9ahqlsVw#cc">Why do I have to do this?</a></span></h2>
 
@@ -1420,7 +1444,8 @@ html body .h30 .widget-dropdown-list li {
                   </tr>                </tbody>
               </table>
             </div>        </li>
-    </ol>    <div class="next-step">
+            </div>
+    </ol>   <div class="next-step">
         <a id="cancelBtn" href="https://qaip13.ticketmaster.net:8003/member" role="link" class="button-large button-secondary">Cancel</a>
         <input id="nextBtn" type="submit" value="Next" class="button-large button">
     </div>  </form>
