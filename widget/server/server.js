@@ -20,7 +20,8 @@ app.get( '/my_account', function( request, response ) {
     {
     	title: 'Ticket Master | My Account',
     	css: [ 
-            '/css/priceWidget.css' 
+            '/css/priceWidget.css',
+            '/css/bootstrap.min.css' 
             ],
         js: [
             '/js/priceWidget.js',
