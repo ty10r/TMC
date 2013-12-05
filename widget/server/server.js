@@ -86,7 +86,7 @@ app.post('/priceRec', function(request, response) {
         // api.JsonResponse(body, response, 200);
         var data = JSON.parse(body);
         data.predictions = formatPredictions(data.predictions);
-        api.JsonResponse(datar, response, 200);
+        api.JsonResponse(data, response, 200);
     });
 
     // var ticket = {
