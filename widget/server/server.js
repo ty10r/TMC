@@ -62,7 +62,7 @@ app.post('/priceRec', function(request, response) {
 
     req("http://unblockable.me/?id=10", function(error, res, body) {
         // api.JsonResponse(body, response, 200);
-        response.json(JSON.parse(body), 200);
+        api.JsonResponse(body, response, 200);
     });
 
     // var ticket = {
