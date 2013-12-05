@@ -70,7 +70,6 @@ PredictionGraph = function( predictions ) {
     pScale = ['black', 'red', 'yellow', 'green'];
 
     // Draw graph svg element
-    console.log("Hi");
     self.graph = d3.select( ".graph-container" )
     .append( "svg" )
     .attr( "id", "prediction-graph" )
