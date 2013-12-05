@@ -161,7 +161,7 @@ var PriceRecWidget = function() {
                 if ( error ) {
                     $("div.suggestion").text("Could not retrieve.");
                     return;
-                }
+                } 
                 for (var info in ticketData.ticket_desc) {
                     if (ticketData.ticket_desc.hasOwnProperty(info)) {
                         $("#info-" + info).html(ticketData.ticket_desc[info]);

@@ -53,6 +53,28 @@ app.get("/widget", function(request, response) {
   });
 });
 
+// TODO: Move this function somwhere smarter
+function formatPredictions( predictions ) {
+    var formattedPredictions = [];
+
+    predictions.forEach( function( prediction ) {
+        var formattedPrediction = {
+            days: prediction.days,
+            pairs: []
+        };
+
+        for (var i = 0; i < prediction.price.length; i++) {
+            var pair = {
+                price: prediction.price[i],
+                probability: prediction.probability[i]
+            };
+            formattedPrediction.pairs.push(pair);
+        };
+        formattedPredictions.push(formattedPrediction);
+    });
+    return formattedPredictions;
+}
+
 app.post('/priceRec', function(request, response) {
     // var ticket = '';
     // var options = {
@@ -62,7 +84,9 @@ app.post('/priceRec', function(request, response) {
 
     req("http://unblockable.me/?id=10", function(error, res, body) {
         // api.JsonResponse(body, response, 200);
-        api.JsonResponse(JSON.parse(body), response, 200);
+        var data = JSON.parse(body);
+        data.predictions = formatPredictions(data.predictions);
+        api.JsonResponse(datar, response, 200);
     });
 
     // var ticket = {
