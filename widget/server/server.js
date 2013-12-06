@@ -76,6 +76,10 @@ function formatPredictions( predictions ) {
 app.post('/priceRec', function(request, response) {
     req("http://ec2-54-224-130-193.compute-1.amazonaws.com:2013/example-service/rest/prediction/" + request.body.barcode, function(error, res, body) {
         var data = JSON.parse(body);
+        if ( !data.predictions ) {
+            api.JsonResponse('Invalid barcode', 500);
+            return;
+        }
         data.predictions = formatPredictions(data.predictions);
         api.JsonResponse(data, response, 200);
     });
