@@ -55,7 +55,7 @@ PredictionGraph = function( predictions, height, width ) {
         }));
     }
 
-    var yScale = d3.scale.linear().range([height - bottomPadding, 0])
+    var yScale = d3.scale.linear().range([height - bottomPadding, bottomPadding])
                                    .domain([d3.min(minPrices, function(price) {return price;}),
                                              d3.max(maxPrices, function(price) {return price;})])
 
@@ -81,7 +81,7 @@ PredictionGraph = function( predictions, height, width ) {
     .attr( "height", height + "px" );
 
     // Draw Axes
-    var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(9);
+    var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(predictions.length);
     var yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(6);
     graph.append("g")
          .attr("class", "axis")
@@ -97,10 +97,11 @@ PredictionGraph = function( predictions, height, width ) {
     for (var i = 0; i < predictions.length; i++) {
         var prediction = predictions[i];
         var gradientId = "gradient-" + prediction.days;
+        var lastInd = prediction.pairs.length - 1;
 
         // Build relative scale for day's gradient (percentage)
         var gradScale = d3.scale.linear().range([100, 0])
-                                         .domain([prediction.pairs[0].price, prediction.pairs[4].price]);
+                                         .domain([prediction.pairs[0].price, prediction.pairs[lastInd].price]);
 
         // Define gradient for day
         var gradient = defs.append("svg:linearGradient")
@@ -117,9 +118,9 @@ PredictionGraph = function( predictions, height, width ) {
         // Draw day's rectangle with gradient fill.
         graph.append("rect")
             .attr("x", xScale(prediction.days))
-            .attr("y", yScale(prediction.pairs[4].price))
+            .attr("y", yScale(prediction.pairs[lastInd].price))
             .attr("width", recWidth)
-            .attr("height", yScale(prediction.pairs[0].price) - yScale( prediction.pairs[4].price) )
+            .attr("height", yScale(prediction.pairs[0].price) - yScale( prediction.pairs[lastInd].price) )
             .attr("fill", "url(#" + gradientId + ")");
     };
 };
@@ -149,9 +150,10 @@ var PriceRecWidget = function() {
 		},
 		function( error, message ) {
 			if ( error ) {
-				self.ReportError( error );
+                $("div.suggestion").text("Could not retrieve.");
+                return;
 			}
-			self.RenderRecommendation(bCode, 228);
+			self.RenderRecommendation( message );
 		});
 	};
 
@@ -172,35 +174,24 @@ var PriceRecWidget = function() {
         });
     };
 
-	self.RenderRecommendation = function(bCode, oPrice) {
+	self.RenderRecommendation = function( ticketData ) {
 		$(".prompt").hide();
 		$("div.recommendations").show();
-        Request({
-                url: '/priceRec',
-                type: 'POST',
-                data: {
-                    barcode: bCode
-                }
-            },
-            function (error, ticketData) {
-                if ( error ) {
-                    $("div.suggestion").text("Could not retrieve.");
-                    return;
-                } 
-                for (var info in ticketData.ticket_desc) {
-                    if (ticketData.ticket_desc.hasOwnProperty(info)) {
-                        $("#info-" + info).html(ticketData.ticket_desc[info]);
-                    }
-                }
-                if ( ticketData.predictions[0].pairs[0].price < oPrice ) 
-                    $("div.suggestion").css('color', '#D00509');
-                else
-                    $("div.suggestion").css('color', 'black');
+        
+        for (var info in ticketData.ticket_desc) {
+            if (ticketData.ticket_desc.hasOwnProperty(info)) {
+                $("#info-" + info).html(ticketData.ticket_desc[info]);
+            }
+        }
+        if ( ticketData.predictions[0].pairs[0].price < ticketData.ticket_desc.price ) 
+            $("div.suggestion").css('color', '#D00509');
+        else
+            $("div.suggestion").css('color', 'black');
 
-                $("div.suggestion").text("$" + ticketData.predictions[0].pairs[2].price);
-                self.graph = new PredictionGraph(ticketData.predictions, 260, 680);
-                self.SetResizeListener();
-            });
+        $("div.suggestion").text("$" + ticketData.predictions[0].pairs[2].price);
+        self.graph = new PredictionGraph(ticketData.predictions, 260, 680);
+        self.SetResizeListener();
+
 		self.SelectTab("simple");
 	};
 
