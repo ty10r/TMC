@@ -45,8 +45,6 @@ PredictionGraph = function( predictions ) {
     var recWidth = 20;
     var recHeight = 40;
 
-
-
     // Set Up Graph scales
     var maxPrices = []
     var minPrices = []
@@ -67,7 +65,16 @@ PredictionGraph = function( predictions ) {
                                    .domain([d3.min(predictions, function(prediction) {return prediction.days;}),
                                             d3.max(predictions, function(prediction) {return prediction.days;})]);
 
-    pScale = ['black', 'red', 'yellow', 'green'];
+    // Red          = (208, 5, 9)
+    // Orange       = (210, 135, 5)
+    // Yellow       = (210, 210, 5)
+    // Y-green      = (169, 210, 5)
+    // green        = (66, 210, 5)
+
+    pScale = d3.scale.quantize().range([ d3.rgb(66, 210, 5), d3.rgb(169, 210, 5),
+                                         d3.rgb(210, 210, 5), d3.rgb(210, 135, 5), d3.rgb(208, 5, 10) ])
+                                .domain([100, 25]);
+
 
     // Draw graph svg element
     self.graph = d3.select( ".graph-container" )
@@ -97,17 +104,19 @@ PredictionGraph = function( predictions ) {
         }
     }
 
+    // draw predictions on graph
     graph.selectAll("rect")
     .data(flatPredictions)
     .enter()      
     .append("rect")
     .attr("x", function(d) {return xScale(d[0]) - recWidth/2+20;})
     .attr("y", function(d) {return yScale(d[1]);})
-    .attr("fill", function(d) { return pScale[d[2]];})
+    .attr("fill", function(d) {
+        console.log(d[2]);
+        console.log(pScale(d[2] * 100))
+        return pScale(d[2] * 100);})
     .attr("width", function(d) {return recWidth;})
     .attr("height", function(d) {return recHeight;});
-
-
 };
 
 var PriceRecWidget = function() {
@@ -157,6 +166,7 @@ var PriceRecWidget = function() {
                 }
             },
             function (error, ticketData) {
+                console.log(ticketData.predictions)
                 if ( error ) {
                     $("div.suggestion").text("Could not retrieve.");
                     return;
@@ -167,7 +177,7 @@ var PriceRecWidget = function() {
                     }
                 }
                 if ( ticketData.predictions[0].pairs[0].price < oPrice ) 
-                    $("div.suggestion").css('color', 'red');
+                    $("div.suggestion").css('color', '#D00509');
                 else
                     $("div.suggestion").css('color', 'black');
 
