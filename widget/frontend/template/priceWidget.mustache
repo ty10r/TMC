@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Widget</title>
+  <link rel="stylesheet" type="text/css" href="public/default.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/priceWidget.css">
+  <script src="js/priceWidget.js" text="text/javascript"></script>
+  <script src="js/lib/jquery-1.10.2.min.js" text="text/javascript"></script>
+  <script language="JavaScript" charset="utf-8" src="/js/lib/d3.v3.min.js"></script>
+</head>
+<body style="background-color: #FFFFFF;">
+<div class="container">
+<div class="row">
+<div class="col-md-8">
+<section class="price-rec">
+	<div class="prompt">
+		<h2 class="description">Enter your Ticket's Barcode</h2>
+		<div id="ticket">
+			<input id="barcode" type="text" placeholder="Your Ticket's Barcode" value="">
+			<button id="submit-barcode" class="button">Get Recommendations</button>
+		</div>
+		<div class="error-feedback"></div>
+	</div>
+
+	<div class="recommendations">
+		<div class="tab-nav">
+			<div class="tab-selector" id="simple"><a href="javascript:void(0);">Recommendation</a></div>
+			<div class="tab-selector" id="info"><a href="javascript:void(0);">Ticket Info</a></div>
+			<div class="tab-selector" id="advanced"><a href="javascript:void(0);">Advanced</a></div>
+		</div>
+		<div class="tab" id="simple-tab">
+			<h2 class="description">Suggested Price</h2>
+			<div class="suggestion" id="suggested-price">Retrieving...</div>
+			<h3 class="description">Enter Another Ticket's Barcode</h3>
+			<div id="ticket">
+				<input id="barcode" type="text" placeholder="Your Ticket's Barcode" value="">
+				<button id="submit-barcode" class="button">Get Recommendations</button>
+			</div>
+			<!--
+			<div class="error-feedback"></div> -->
+		</div>
+		<div class="tab" id="info-tab">
+			<h2 class="description">Ticket Detais</h2>
+			<div class="ticket-info" id="info-barcode"></div>
+			<div class="ticket-info" id="info-seat"></div>
+			<div class="ticket-info" id="info-team"></div>
+			<div class="ticket-info" id="info-price"></div>
+			<div class="ticket-info" id="info-time"></div>
+		</div>
+		<div class="tab" id="advanced-tab">
+			<h2 class="description">Price Probabilities over Time</h2>
+			<div class="graph-container"></div>
+		</div>
+	</div>
+</section>
+</div>
+</div>
+</div>
+</body>
+</html>
