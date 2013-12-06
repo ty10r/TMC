@@ -6,6 +6,7 @@ $( document ).ready( function() {
     widget = new PriceRecWidget();
 
 	var bCode;
+
     //*******************************************
     //* SET INIT STATE
     //*******************************************
@@ -37,19 +38,15 @@ $( document ).ready( function() {
 });
 
 // d3 graph
-PredictionGraph = function( predictions ) {
-    var width = 620;
-    var height = 320;
-    var margin = 40;
-    var bottomMargin = 80;
-    var priceTicks = 5;
-    var recWidth = 20;
-    var recHeight = 40;
+PredictionGraph = function( predictions, height, width ) {
+    var lrPadding = width/20;
+    var bottomPadding = height/10;
+    var recWidth = (width-2*lrPadding)/20;
 
     // Set Up Graph scales
     var maxPrices = []
     var minPrices = []
-    for (var i = 0; i < predictions.length; i ++) {
+    for (var i = 0; i < predictions.length; i++) {
         maxPrices.push(d3.max(predictions[i].pairs, function(pair) {
             return pair.price;
         }));
@@ -58,11 +55,11 @@ PredictionGraph = function( predictions ) {
         }));
     }
 
-    var yScale = d3.scale.linear().range([height - margin*2, margin])
+    var yScale = d3.scale.linear().range([height - bottomPadding, 0])
                                    .domain([d3.min(minPrices, function(price) {return price;}),
                                              d3.max(maxPrices, function(price) {return price;})])
 
-    var xScale = d3.scale.linear().range([margin, width - margin])
+    var xScale = d3.scale.linear().range([lrPadding, width-lrPadding])
                                    .domain([d3.min(predictions, function(prediction) {return prediction.days;}),
                                             d3.max(predictions, function(prediction) {return prediction.days;})]);
 
@@ -78,6 +75,8 @@ PredictionGraph = function( predictions ) {
     self.graph = d3.select( ".graph-container" )
     .append( "svg" )
     .attr( "id", "prediction-graph" )
+    .attr( "viewBox", "0 0 " + width + " " + height)
+    .attr( "preserveAspectRation", "xMidYMid")
     .attr( "width", width + "px" )
     .attr( "height", height + "px" );
 
@@ -86,21 +85,13 @@ PredictionGraph = function( predictions ) {
     var yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(6);
     graph.append("g")
          .attr("class", "axis")
-         .attr("transform", "translate(10," + (height - bottomMargin) + ")")
+         .attr("transform", "translate(0," + (height-bottomPadding) + ")")
          .call(xAxis);
 
     graph.append("g")
          .attr("class", "axis")
-        .attr("transform", "translate(" + (margin) + ",0)")
+         .attr("transform", "translate(" + lrPadding + ",0)")
          .call(yAxis);
-
-    // flatten predictions
-    var flatPredictions = []
-    for (var i = 0; i < predictions.length; i++) {
-        for ( var j = 0; j < predictions[i].pairs.length; j++ ) {
-            flatPredictions.push([predictions[i].days, predictions[i].pairs[j].price, predictions[i].pairs[j].probability]);
-        }
-    }
 
     var defs = graph.append('defs');
     for (var i = 0; i < predictions.length; i++) {
@@ -125,7 +116,7 @@ PredictionGraph = function( predictions ) {
         }
         // Draw day's rectangle with gradient fill.
         graph.append("rect")
-            .attr("x", xScale(prediction.days) - recWidth/2+20)
+            .attr("x", xScale(prediction.days))
             .attr("y", yScale(prediction.pairs[4].price))
             .attr("width", recWidth)
             .attr("height", yScale(prediction.pairs[0].price) - yScale( prediction.pairs[4].price) )
@@ -169,6 +160,18 @@ var PriceRecWidget = function() {
 		$('.price-rec .error-feedback').html(error);
 	};
 
+    self.SetResizeListener = function() {
+        // Assumes graph has already been rendered.
+        var graphAspect = 680/260;
+        var graph = $("#prediction-graph");
+
+        $(window).resize(function() {
+            var targWidth = graph.parent().width() * .92;
+            graph.attr('width', targWidth);
+            graph.attr('height', targWidth / graphAspect);
+        });
+    };
+
 	self.RenderRecommendation = function(bCode, oPrice) {
 		$(".prompt").hide();
 		$("div.recommendations").show();
@@ -195,9 +198,9 @@ var PriceRecWidget = function() {
                     $("div.suggestion").css('color', 'black');
 
                 $("div.suggestion").text("$" + ticketData.predictions[0].pairs[2].price);
-                self.graph = new PredictionGraph(ticketData.predictions);
-
-            })
+                self.graph = new PredictionGraph(ticketData.predictions, 260, 680);
+                self.SetResizeListener();
+            });
 		self.SelectTab("simple");
 	};
 
