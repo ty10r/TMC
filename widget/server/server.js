@@ -237,7 +237,7 @@ app.post('/priceRec', function(request, response) {
     req("http://ec2-54-224-130-193.compute-1.amazonaws.com:2013/example-service/rest/prediction/" + request.body.barcode, function(error, res, body) {
         var data = JSON.parse(body);
         if ( !data.predictions ) {
-            api.JsonResponse('Invalid barcode', response, 500);
+            api.JsonResponse('Invalid barcode.', response, 200);
             return;
         }
         data.predictions = formatPredictions(data.predictions);
