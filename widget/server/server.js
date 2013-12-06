@@ -10,7 +10,7 @@ app.use(express.static(WEB_PATH));
 
 app.get( '/hello', function( request, response ) {
 	// api.JsonResponse('Hi Everybody! :D', response, 200);
-        req("http://unblockable.me/?id=10", function(error, res, body) {
+        req("http://ec2-54-224-130-193.compute-1.amazonaws.com:2013/example-service/rest/prediction/123559520", function(error, res, body) {
         // api.JsonResponse(body, response, 200);
         response.json(JSON.parse(body), 200);
     });
@@ -63,10 +63,10 @@ function formatPredictions( predictions ) {
             pairs: []
         };
 
-        for (var i = 0; i < prediction.price.length; i++) {
+        for (var i = 0; i < prediction.prices.length; i++) {
             var pair = {
-                price: prediction.price[i],
-                probability: prediction.probability[i]
+                price: prediction.prices[i],
+                probability: prediction.probabilities[i]
             };
             formattedPrediction.pairs.push(pair);
         };
@@ -82,7 +82,7 @@ app.post('/priceRec', function(request, response) {
     //     headers: {'id': 10}
     // };
 
-    req("http://unblockable.me/?id=10", function(error, res, body) {
+    req("http://ec2-54-224-130-193.compute-1.amazonaws.com:2013/example-service/rest/prediction/" + request.body.barcode, function(error, res, body) {
         // api.JsonResponse(body, response, 200);
         var data = JSON.parse(body);
         data.predictions = formatPredictions(data.predictions);
