@@ -41,6 +41,7 @@ PredictionGraph = function( predictions ) {
     var width = 620;
     var height = 320;
     var margin = 40;
+    var bottomMargin = 80;
     var priceTicks = 5;
     var recWidth = 20;
     var recHeight = 40;
@@ -57,23 +58,20 @@ PredictionGraph = function( predictions ) {
         }));
     }
 
-    yScale = d3.scale.linear().range([height - margin*2, margin])
+    var yScale = d3.scale.linear().range([height - margin*2, margin])
                                    .domain([d3.min(minPrices, function(price) {return price;}),
                                              d3.max(maxPrices, function(price) {return price;})])
 
-    xScale = d3.scale.linear().range([margin, width - margin])
+    var xScale = d3.scale.linear().range([margin, width - margin])
                                    .domain([d3.min(predictions, function(prediction) {return prediction.days;}),
                                             d3.max(predictions, function(prediction) {return prediction.days;})]);
 
-    // Red          = (208, 5, 9)
-    // Orange       = (210, 135, 5)
-    // Yellow       = (210, 210, 5)
-    // Y-green      = (169, 210, 5)
-    // green        = (66, 210, 5)
 
-    pScale = d3.scale.quantize().range([ d3.rgb(66, 210, 5), d3.rgb(169, 210, 5),
+    // Red              Orange              Yellow              Y-green             green
+    // (208, 5, 9)      (210, 135, 5)       (210, 210, 5)       (169, 210, 5)       (66, 210, 5)
+    var colorScale = d3.scale.quantize().range([ d3.rgb(66, 210, 5), d3.rgb(169, 210, 5),
                                          d3.rgb(210, 210, 5), d3.rgb(210, 135, 5), d3.rgb(208, 5, 10) ])
-                                .domain([100, 25]);
+                                    .domain([100, 25]);
 
 
     // Draw graph svg element
@@ -84,11 +82,11 @@ PredictionGraph = function( predictions ) {
     .attr( "height", height + "px" );
 
     // Draw Axes
-    var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(4);
+    var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(9);
     var yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(6);
     graph.append("g")
          .attr("class", "axis")
-         .attr("transform", "translate(20," + (height - margin) + ")")
+         .attr("transform", "translate(10," + (height - bottomMargin) + ")")
          .call(xAxis);
 
     graph.append("g")
@@ -104,19 +102,35 @@ PredictionGraph = function( predictions ) {
         }
     }
 
-    // draw predictions on graph
-    graph.selectAll("rect")
-    .data(flatPredictions)
-    .enter()      
-    .append("rect")
-    .attr("x", function(d) {return xScale(d[0]) - recWidth/2+20;})
-    .attr("y", function(d) {return yScale(d[1]);})
-    .attr("fill", function(d) {
-        console.log(d[2]);
-        console.log(pScale(d[2] * 100))
-        return pScale(d[2] * 100);})
-    .attr("width", function(d) {return recWidth;})
-    .attr("height", function(d) {return recHeight;});
+    var defs = graph.append('defs');
+    for (var i = 0; i < predictions.length; i++) {
+        var prediction = predictions[i];
+        var gradientId = "gradient-" + prediction.days;
+
+        // Build relative scale for day's gradient (percentage)
+        var gradScale = d3.scale.linear().range([100, 0])
+                                         .domain([prediction.pairs[0].price, prediction.pairs[4].price]);
+
+        // Define gradient for day
+        var gradient = defs.append("svg:linearGradient")
+                           .attr("id", gradientId)
+                           .attr("x1", "0%")
+                           .attr("y1", "0%")
+                           .attr("x2", "0%")
+                           .attr("y2", "100%");
+        for (var j = prediction.pairs.length - 1; j >= 0; j--) {
+            gradient.append("svg:stop")
+                    .attr("offset", gradScale(prediction.pairs[j].price)+'%')
+                    .attr("stop-color", colorScale(prediction.pairs[j].probability * 100))
+        }
+        // Draw day's rectangle with gradient fill.
+        graph.append("rect")
+            .attr("x", xScale(prediction.days) - recWidth/2+20)
+            .attr("y", yScale(prediction.pairs[4].price))
+            .attr("width", recWidth)
+            .attr("height", yScale(prediction.pairs[0].price) - yScale( prediction.pairs[4].price) )
+            .attr("fill", "url(#" + gradientId + ")");
+    };
 };
 
 var PriceRecWidget = function() {
@@ -166,7 +180,6 @@ var PriceRecWidget = function() {
                 }
             },
             function (error, ticketData) {
-                console.log(ticketData.predictions)
                 if ( error ) {
                     $("div.suggestion").text("Could not retrieve.");
                     return;
